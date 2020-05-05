@@ -1,13 +1,18 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.app{
+    background-color: aquamarine;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.Poster {
+    border: 1px solid black;
+    border-radius: 5px 5px 5px 5px;    
+    width: 162px;
+    height: 200px;
+    margin: 18px;
+}
+.movie{  
+    border: 1px solid black;  
+    border-radius: 10px 10px 10px 10px;    
+}
+.details{
+    margin-left: 18px;
+    padding-bottom: 12px;    
 }
