@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import Counter from './Components/counter'
+import Counters from './Components/counters'
 
 const name = {
     'firstName': 'Sagar',
@@ -35,6 +36,7 @@ function Description(props) {
 }
 
 function Poster(props) {
+    useState()
     return (
         <img src={props.posterUrl} className="Poster" />
     );
@@ -63,7 +65,7 @@ function Movie(props) {
 }
 const movie = {
     PosterUrl: "https://upload.wikimedia.org/wikipedia/en/b/b6/Kick_%282014_film%29_Official_release_poster.jpg",
-    Cast: "Salman Khan, Katrina Kaif",
+    Cast: "Salman Khan, Jacqualine Fernandiz",
     ReleaseDate: "21/01/2020",
     Name: "Kick"
 }
@@ -74,4 +76,4 @@ ReactDOM.render(<Movie movie={movie} />, document.getElementById("root"));
 //ReactDOM.render(<Description name="Facebook" year="2011" />, document.getElementById("content"));
 
 
-ReactDOM.render(<Counter />, document.getElementById("content"));
+ReactDOM.render(<Counters />, document.getElementById("content"));

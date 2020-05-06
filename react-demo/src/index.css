@@ -1,18 +1,31 @@
-.app{
+.app {
     background-color: aquamarine;
 }
+
 .Poster {
     border: 1px solid black;
-    border-radius: 5px 5px 5px 5px;    
+    border-radius: 5px 5px 5px 5px;
     width: 162px;
     height: 200px;
     margin: 18px;
 }
-.movie{  
-    border: 1px solid black;  
-    border-radius: 10px 10px 10px 10px;    
+
+.movie {
+    border: 1px solid black;
+    border-radius: 10px 10px 10px 10px;
 }
-.details{
+
+.details {
     margin-left: 18px;
-    padding-bottom: 12px;    
+    padding-bottom: 12px;
+}
+
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif !important;
+    font-style: italic;
+}
+
+ul {
+    list-style-type: square;
+    font-family: cursive !important;
 }
