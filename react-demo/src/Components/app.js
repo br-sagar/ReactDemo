@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Counters from '../Components/counters'
 import Navbar from '../Components/navbar'
 import FormData from '../Components/userInformation'
+import Calculator from './calculator';
+import Mounting from './mountingLifeCycle';
+
 class App extends Component {
     state = {}
     render() {
@@ -9,7 +12,10 @@ class App extends Component {
             <div className="m-3">
                 <Navbar />
                 <Counters />
-                <FormData />
+                <div className="row justify-content-center">
+                    <FormData />
+                    <Calculator />
+                </div>
             </div>
         );
     }

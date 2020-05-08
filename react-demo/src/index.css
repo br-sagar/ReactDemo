@@ -10,6 +10,11 @@
     margin: 18px;
 }
 
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif !important;
+    font-style: italic;
+}
+
 .movie {
     border: 1px solid black;
     border-radius: 10px 10px 10px 10px;
@@ -20,12 +25,17 @@
     padding-bottom: 12px;
 }
 
-h1 {
-    font-family: Georgia, 'Times New Roman', Times, serif !important;
-    font-style: italic;
-}
 
 ul {
     list-style-type: square;
     font-family: cursive !important;
+}
+
+#form {
+    height: fit-content;
+}
+
+
+.w-auto {
+    font-size: 15px;
 }
