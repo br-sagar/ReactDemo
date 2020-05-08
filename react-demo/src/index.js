@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.css'
+import Counters from './Components/counters';
+import App from './Components/app'
 
-import Counter from './Components/counter'
-import Counters from './Components/counters'
 
 const name = {
     'firstName': 'Sagar',
@@ -70,10 +70,10 @@ const movie = {
     Name: "Kick"
 }
 //Here we are consuming the Intro component which we created earlier 
-ReactDOM.render(<Movie movie={movie} />, document.getElementById("root"));
+//ReactDOM.render(<Movie movie={movie} />, document.getElementById("root"));
 
 //An example of passing property to the function component.
 //ReactDOM.render(<Description name="Facebook" year="2011" />, document.getElementById("content"));
 
 
-ReactDOM.render(<Counters />, document.getElementById("content"));
+ReactDOM.render(<App />, document.getElementById("content"));
