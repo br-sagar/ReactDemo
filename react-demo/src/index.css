@@ -10,10 +10,6 @@
     margin: 18px;
 }
 
-body {
-    font-family: Georgia, 'Times New Roman', Times, serif !important;
-    font-style: italic;
-}
 
 .movie {
     border: 1px solid black;
@@ -28,7 +24,6 @@ body {
 
 ul {
     list-style-type: square;
-    font-family: cursive !important;
 }
 
 #form {
@@ -38,4 +33,26 @@ ul {
 
 .w-auto {
     font-size: 15px;
+}
+
+.paragraph {
+    text-align: justify;
+    text-overflow: ellipsis;
+}
+
+.thumbnail {
+    height: 138px;
+    width: 189px;
+    border-radius: 20px 0px 0px 20px;
+}
+
+.socialLinks {
+    list-style: none;
+    display: inline-flex;
+}
+
+.heading {
+    font-size: 20px;
+    font-weight: 500;
+
 }
