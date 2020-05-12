@@ -1,58 +1,58 @@
 .app {
-    background-color: aquamarine;
+  background-color: aquamarine;
 }
 
 .Poster {
-    border: 1px solid black;
-    border-radius: 5px 5px 5px 5px;
-    width: 162px;
-    height: 200px;
-    margin: 18px;
+  border: 1px solid black;
+  border-radius: 5px 5px 5px 5px;
+  width: 162px;
+  height: 200px;
+  margin: 18px;
 }
 
-
 .movie {
-    border: 1px solid black;
-    border-radius: 10px 10px 10px 10px;
+  border: 1px solid black;
+  border-radius: 10px 10px 10px 10px;
 }
 
 .details {
-    margin-left: 18px;
-    padding-bottom: 12px;
+  margin-left: 18px;
+  padding-bottom: 12px;
 }
 
-
 ul {
-    list-style-type: square;
+  list-style-type: square;
 }
 
 #form {
-    height: fit-content;
+  height: fit-content;
 }
 
-
 .w-auto {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 .paragraph {
-    text-align: justify;
-    text-overflow: ellipsis;
+  text-align: justify;
+  text-overflow: ellipsis;
 }
 
 .thumbnail {
-    height: 138px;
-    width: 189px;
-    border-radius: 20px 0px 0px 20px;
+  height: 148px;
+  width: 189px;
+  border-radius: 20px 0px 0px 20px;
 }
 
 .socialLinks {
-    list-style: none;
-    display: inline-flex;
+  list-style: none;
+  display: inline-flex;
+  margin-left: -43px;
 }
 
 .heading {
-    font-size: 20px;
-    font-weight: 500;
-
+  font-size: 20px;
+  font-weight: 500;
+}
+.socialButtonn {
+  width: 42px;
 }
