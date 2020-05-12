@@ -3,6 +3,7 @@ import Counters from '../Components/counters'
 import Navbar from '../Components/navbar'
 import FormData from '../Components/userInformation'
 import SplitPane from './splitPane';
+import Mounting from './mountingLifeCycle';
 
 class App extends Component {
     state = {}
@@ -41,6 +42,7 @@ class App extends Component {
                         </article>
                     </SplitPane>
                 </div>
+                <Mounting />
             </div>
         );
     }

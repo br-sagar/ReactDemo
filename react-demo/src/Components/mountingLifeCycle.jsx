@@ -16,28 +16,37 @@ class Mounting extends Component {
             isShow: !this.state.isShow
         })
     }
+    handleState = () => {
+        this.setState({
+            val: "sagar",
+            cnt: 12
+        })
+    }
     render() {
         console.log("Render method Called")
-        if (this.state.isShow) {
-            return (
-                <div id="show">
-                    <p className="badge" id='time'>{this.state.time.toTimeString()}</p>
-                    <button onClick={this.handleChange}>Hide</button>
-                </div>);
-        }
-        else {
-            return (
-                <div id="hide">
-                    <p>Hidden Element</p>
-                    <button onClick={this.handleChange}>Show</button>
-                </div>);
-        }
+        return (
+            <div id="show">
+                <p className="badge" id='time'>{this.state.time.toTimeString()}</p>
+                <button onClick={this.handleState}>Handle State</button>
+            </div>);
     }
 
-
-    componentDidUpdate() {
-        console.log(this.state.isShow)
-
+    // componentDidMount() {
+    //     this.timer = setInterval(() => this.tick(), 1000)
+    //     console.log("Mounting")
+    // }
+    tick() {
+        this.setState({ time: new Date() })
+    }
+    shouldComponentUpdate() {
+        return true
+    }
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        console.log("SnapShot " + prevState.val + ' ' + prevState.cnt)
+        return null
+    }
+    componentDidUpdate(prevState, prevProps) {
+        console.log("Update" + prevProps.val)
     }
 }
 
