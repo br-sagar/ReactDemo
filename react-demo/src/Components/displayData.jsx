@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Columns from "./fragmentDemo";
 class DisplayDetails extends Component {
   state = {};
   render() {
@@ -17,16 +18,7 @@ class DisplayDetails extends Component {
         <tbody>
           {this.props.user.map(item => (
             <tr key={this.props.user.indexOf(item)}>
-              <td>{item.fname}</td>
-              <td>{item.gen}</td>
-              <td>{item.city}</td>
-              <td>{item.dob}</td>
-              <td>{item.address}</td>
-              <td>
-                {item.hobbies.map(item => (
-                  <span className="badge badge-danger">{item}</span>
-                ))}
-              </td>
+              <Columns items={item} />
             </tr>
           ))}
         </tbody>
