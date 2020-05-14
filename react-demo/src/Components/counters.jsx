@@ -19,7 +19,7 @@ class Counters extends Component {
     }
     render() {
         return (
-            <div className="row justify-content-center">
+            <div className="row justify-content-center bg-white">
                 {this.state.counters.map(counter =>
                     <Counter
                         id={counter.key}

@@ -112,7 +112,7 @@ class FormData extends Component {
         var renderComponent = ''
         if (this.state.isSubmitted) {
             renderComponent =
-                <div className="col-lg-4 shadow m-4" id="form" >
+                <div className="col-lg-4 shadow m-4 bg-white" id="form" >
                     <form onSubmit={this.handleSubmit}>
                         <div id="formdata" >
                             <div className="form-group row mt-2">
@@ -206,7 +206,7 @@ class FormData extends Component {
         }
         else {
             renderComponent =
-                <div className="shadow">
+                <div className="shadow bg-white mt-3">
                     <button onClick={this.handleSubmit} className="btn btn-primary m-3">Add New</button>
                     <DisplayDetails user={this.state.user} />
                 </div>
