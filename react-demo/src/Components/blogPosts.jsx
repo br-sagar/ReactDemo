@@ -1,27 +1,32 @@
 import React, { Component } from 'react';
 import SocialActivity from './splitPane'
+import { Redirect, useRouteMatch, Link, useHistory, NavLink } from 'react-router-dom';
 class Blogs extends Component {
     constructor() {
         super()
-        this.state = {
-            likes: 0
-        }
     }
+
+    handleEditPost = (e) => {
+        const to = '/blogs' + e.target.value
+        const from = '/blogs'
+        let history = useHistory();
+        console.log(history)
+    }
+
     render() {
+        const { posts, postNo } = this.props
         return (
-            <div
-                className="col-lg-7  mb-3"
-                style={{
-                    backgroundColor: "#e3f2fd", fontSize: 13
-                }}>
+            <div className="col-lg-7  mb-3 rounded" style={{ backgroundColor: "#009688", fontSize: 13, color: 'white' }}>
                 <section>
                     <header>
-                        <h4>{this.props.title}</h4>
-                        <p><em>Written By: {this.props.userId}</em></p>
-                        <p>Post No: {this.props.id}</p>
+                        <h4 className="text-uppercase">{posts.title}</h4>
+                        <p><em>Written By: {posts.userId}</em></p>
+                        <p>Post No: {postNo + 1} </p>
                     </header>
                     <article>
-                        <p className="paragraph">{this.props.body}</p>
+                        <p className="paragraph">{posts.body}</p>
+                        <Link className="btn btn-primary btn-sm m-2" to={{ pathname: "/blogs/" + posts.id, state: { id: posts.id } }} >Edit</Link>
+                        <button type="button" className="btn btn-sm btn-danger m-2 " value={posts.id} onClick={this.props.onDelete}>Delete</button>
                     </article>
                 </section>
             </div>);

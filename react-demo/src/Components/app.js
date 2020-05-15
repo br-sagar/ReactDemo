@@ -1,5 +1,4 @@
 
-
 import React, { Component } from "react";
 import Counters from "../Components/counters";
 import Navbar from "../Components/navbar";
@@ -12,7 +11,6 @@ class App extends Component {
   render() {
     return (
       <div className="mt-3 mb-3 bg-secondary" >
-        <Navbar />
         <Counters />
         <div className="row justify-content-center">
           <FormData />
@@ -50,9 +48,9 @@ class App extends Component {
             </article>
           </SplitPane>
         </div>
-        <div className="row justify-content-center  bg-info">
+        {/* <div className="row justify-content-center  bg-info">
           <HandleHttpRequest />
-        </div>
+        </div> */}
       </div>
     );
   }
