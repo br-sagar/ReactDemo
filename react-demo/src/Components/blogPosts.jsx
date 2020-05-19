@@ -16,7 +16,7 @@ class Blogs extends Component {
     render() {
         const { posts, postNo } = this.props
         return (
-            <div className="col-lg-7  mb-3 rounded" style={{ backgroundColor: "#009688", fontSize: 13, color: 'white' }}>
+            <div className="col-lg-7 col-sm-10 col-10 col-md-7  mb-3 rounded" style={{ backgroundColor: "#009688", fontSize: 13, color: 'white' }}>
                 <section>
                     <header>
                         <h4 className="text-uppercase">{posts.title}</h4>

@@ -4,3 +4,15 @@
     color: tomato;
     font-family: fantasy;
 }
+
+.validation {
+    font-size: small;
+    font-family: sans-serif;
+    color: red;
+}
+
+.dashboard {
+    background-image: url('./undraw_happy_music_g6wc.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}

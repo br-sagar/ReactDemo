@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Blogs from './blogPosts';
-import Pagination from './pagination';
-import styles from '../styleSheet.module.css'
+import BlogsWithPagination from './pagination';
+import styles from '../styleSheet.module.css';
+import NotFound from '../Components/notFound'
 class HandleHttpRequest extends Component {
     constructor() {
         super()
@@ -10,6 +11,7 @@ class HandleHttpRequest extends Component {
             pageIndex: 1,
             size: 10,
             pageStart: '',
+            errorInLoad: false
         }
     }
 
@@ -31,6 +33,7 @@ class HandleHttpRequest extends Component {
     }
 
     handlePage = (event) => {
+        console.log(event.target.value)
         this.setState({
             pageIndex: event.target.value
         })
@@ -43,14 +46,14 @@ class HandleHttpRequest extends Component {
         for (var i = 1; i <= (posts.length / size) + 1; i++) {
             pages.push(i)
         }
-        if (posts == null)
-            return null;
+
         return (
             <div className="row justify-content-center">
-                <h1 className={`${styles.title} col-lg-7 mt-3 mb--3`}>BLOG POSTS</h1>
+                <h1 className={`${styles.title} col-lg-7 col-sm-10 col-10 col-md-7 mt-3 mb--3`}>BLOG POSTS</h1>
                 {pagedData.map(post => <Blogs key={post.id} posts={post} postNo={this.state.posts.findIndex(item => item.id === post.id)} onDelete={this.handleOnDelete} />)}
-                <div className="col-lg-7 justify-content-end">
-                    <Pagination pages={pages} onPageChange={this.handlePage} />
+                {pagedData.length === 0 ? <NotFound /> : null}
+                <div className="col-lg-7 col-sm-10 col-10 col-md-7 justify-content-end">
+                    <BlogsWithPagination pages={pages} onPageChange={this.handlePage} pageIndex={pageIndex} />
                     <p style={{ textAlign: 'right', fontSize: 16, fontWeight: 700 }}>Showing {pagedData.length} records of {posts.length} from {(size * (pageIndex - 1) + 1)} : {(size * pageIndex)}</p>
                 </div>
             </div>);
