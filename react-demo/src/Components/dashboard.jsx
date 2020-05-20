@@ -2,6 +2,7 @@ import React, { Component, version } from 'react';
 import Button from '@material-ui/core/Button';
 import styles from '../styleSheet.module.css'
 import firebase from '../config'
+import { LinearProgress } from '@material-ui/core';
 
 class DashBoard extends Component {
     constructor() {
@@ -14,7 +15,8 @@ class DashBoard extends Component {
             postid: '',
             image: '',
             progress: 0,
-            url: ''
+            url: '',
+            showProgressBar: false
         }
     }
 
@@ -57,7 +59,8 @@ class DashBoard extends Component {
     handleUpload = (e) => {
         const selectedFile = document.getElementById('fileInput').files[0];
         this.setState({
-            image: selectedFile
+            image: selectedFile,
+            showProgressBar: !this.state.showProgressBar
         })
         const storage = firebase.storage();
         console.log(selectedFile)
@@ -66,7 +69,8 @@ class DashBoard extends Component {
         const uploadTask = storage.ref(`blogs/${selectedFile.name}`).put(selectedFile);
 
         uploadTask.on("state_changed", snapshot => {
-            const progress = Math.round(snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            console.log(snapshot.bytesTransferred + " " + snapshot.totalBytes)
+            let progress = Math.round((snapshot.bytesTransferred * 100) / snapshot.totalBytes)
             this.setState({ progress: progress })
             console.log(this.state.progress)
         },
@@ -163,7 +167,7 @@ class DashBoard extends Component {
     render() {
         return (
             <div className={`row mt-3 justify-content-center  `}>
-                <div className={`col-lg-6 col-sm-10 col-md-8 col-10 mt-4 bg-light ${styles.dashboard} `}>
+                <div className={`col-lg-6 col-sm-10 col-md-8 col-10 mt-4 bg-light `}>
                     <h4 className="text-center">Post New Blog</h4>
                     <div className="form-group row mt-5">
                         <label htmlFor="name" className="heading col-sm-4 col-form-label">User Id</label>
@@ -195,6 +199,7 @@ class DashBoard extends Component {
                                     Upload
                                 </Button>
                             </label>
+                            {this.state.showProgressBar === true ? <LinearProgress variant='determinate' value={this.state.progress}></LinearProgress> : null}
                         </div>
                     </div>
                     <div className="form-group row mt-2">

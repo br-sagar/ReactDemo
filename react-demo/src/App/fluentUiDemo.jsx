@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Label, Stack, MaskedTextField, DatePicker, DayOfWeek, IDatePickerStrings, mergeStyleSets, IChoiceGroup, ChoiceGroupOption, ChoiceGroup, Dropdown, Toggle, DefaultButton } from '@fluentui/react'
 import { TextField } from '@fluentui/react/lib/TextField';
-import { DropdownMenuItemType, IDropdownStyles, IDropdownOption, PrimaryButton, initializeIcons } from '@fluentui/react'
+import { DropdownMenuItemType, IDropdownStyles, IDropdownOption, PrimaryButton, initializeIcons, IStackTokens } from '@fluentui/react'
 
 const options: IChoiceGroupOption[] = [
     { key: "male", text: "Male" },
@@ -9,6 +9,10 @@ const options: IChoiceGroupOption[] = [
     { key: "other", text: "Other" }
 ]
 
+const tokens: IStackTokens = {
+    childrenGap: 20,
+    padding: 10
+}
 const topskills: IDropdownOption[] = [
     { key: "java", text: "Core Java" },
     { key: "advance-java", text: "Advanced Java" },
@@ -19,6 +23,7 @@ const topskills: IDropdownOption[] = [
     { key: "reactjs", text: "React Js" },
     { key: "angular", text: "Angular Js" },
 ]
+
 const DateStrings: IDatePickerStrings = {
     months: [
         'January',
@@ -62,7 +67,8 @@ class FluentUiDemo extends Component {
             phone: '',
             dob: '',
             maritalStatus: '',
-            user: []
+            user: [],
+            listofusers: []
         }
     }
 
@@ -109,6 +115,21 @@ class FluentUiDemo extends Component {
     }
 
 
+    componentDidMount() {
+        fetch("https://jsonplaceholder.typicode.com/users", { method: "GET" })
+            .then(result => result.json())
+            .then(response => {
+                const option = this.state.listofusers
+                response.map(item => {
+                    option.push({ "key": item.id, "text": item.username })
+                })
+                this.setState({
+                    listofusers: option
+                })
+
+                console.log(this.state.listofusers)
+            })
+    }
 
     render() {
         initializeIcons()
@@ -118,26 +139,25 @@ class FluentUiDemo extends Component {
                 maxWidth: '300px',
             },
         });
-
         return (
             <React.Fragment>
                 <div className="row justify-content-center" style={{ backgroundColor: "#004578" }}>
                     <div className="col-lg-6 col-md-8 col-sm-8 col-11" style={{ textAlign: "center", backgroundColor: '#F2F2F2' }}>
                         <h5>TimeSheet</h5>
-                        <Stack verticalAlign gap="10" wrap>
-                            <Stack horizontal gap="20" padding={10}>
+                        <Stack verticalAlign tokens={tokens} wrap>
+                            <Stack horizontal tokens={tokens}>
                                 <Label required htmlFor="fname"> First Name </Label>
                                 <TextField id="fname" name="fname" onChange={this.handleTextBox}></TextField>
                             </Stack>
-                            <Stack horizontal gap={20} padding={10}>
+                            <Stack horizontal tokens={tokens}>
                                 <Label required htmlFor="sname"> SurName</Label>
                                 <TextField id="sname" name="sname" onChange={this.handleTextBox} ></TextField>
                             </Stack>
-                            <Stack horizontal gap={20} padding={10}>
+                            <Stack horizontal tokens={tokens}>
                                 <Label required htmlFor="phone">Phone Number</Label>
                                 <MaskedTextField mask="(+91) 99999 99999" name="phone" onChange={this.handleTextBox}></MaskedTextField>
                             </Stack>
-                            <Stack horizontal gap={20} padding={10}>
+                            <Stack horizontal tokens={tokens}>
                                 <Label required> Date of Birth </Label>
                                 <DatePicker
                                     placeholder="Date Of Birth"
@@ -152,25 +172,36 @@ class FluentUiDemo extends Component {
                                 >
                                 </DatePicker>
                             </Stack>
-                            <Stack horizontal gap={20} padding={10}>
+                            <Stack horizontal tokens={tokens}>
                                 <Label htmlFor="gender">Gender</Label>
                                 <ChoiceGroup options={options} id="gender" name="gender" defaultChecked="true" onChange={this.handleGender}></ChoiceGroup>
                             </Stack>
-                            <Stack horizontal gap={20} padding={10}>
+                            <Stack horizontal tokens={tokens}>
                                 <Label>Top 5 Skills</Label>
                                 <Dropdown
                                     multiSelect
                                     options={topskills}
                                     placeholder="Choose your top 5 Skills"
                                     name="skills"
+                                    defaultSelectedKeys={['cs', 'js']}
                                     onChange={this.handleSkills}
                                 />
                             </Stack>
-                            <Stack horizontal gap={20} padding={10}>
+                            <Stack horizontal tokens={tokens}>
                                 <Label>Marital Status</Label>
                                 <Toggle onText="Married" offText="Single" name="marital" onChange={this.handleMaritalStatus} ></Toggle>
                             </Stack>
-                            <Stack horizontal gap={20} padding={10}>
+                            <Stack horizontal tokens={tokens}>
+                                <Label required>UserName</Label>
+                                <Dropdown
+                                    multiSelect
+                                    options={this.state.listofusers}
+                                    placeholder="Select username"
+                                    defaultSelectedKeys={["1", "2"]}
+
+                                ></Dropdown>
+                            </Stack>
+                            <Stack horizontal tokens={tokens}>
                                 <PrimaryButton onClick={this.handleRegister} style={{ width: 50 }}>Register</PrimaryButton>
                                 <DefaultButton onClick={this.handleRegister} style={{ width: 50 }}>Cancel</DefaultButton>
                             </Stack>
