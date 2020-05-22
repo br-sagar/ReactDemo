@@ -1,4 +1,4 @@
-import React, { Component, version } from 'react';
+import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
 import styles from '../styleSheet.module.css'
 import firebase from '../config'
@@ -166,7 +166,7 @@ class DashBoard extends Component {
     }
     render() {
         return (
-            <div className={`row mt-3 justify-content-center  `}>
+            <div className={`row mt-3 justify-content-center dashboard `} >
                 <div className={`col-lg-6 col-sm-10 col-md-8 col-10 mt-4 bg-light `}>
                     <h4 className="text-center">Post New Blog</h4>
                     <div className="form-group row mt-5">
@@ -207,7 +207,7 @@ class DashBoard extends Component {
                         <div className="col-lg-8">
                             {/* <button type="submit" onClick={this.handlePost} className="btn btn-success">{this.state.btnText}</button> */}
                             <Button type="submit" onClick={this.handlePost} className="btn btn-success" variant="contained" style={{ backgroundColor: "tomato" }}>{this.state.btnText}</Button>
-                            <Button type="submit" className="btn btn-success" variant="contained" className="bg-warning ml-2" onClick={() => { this.props.history.push('/blogs') }}>Cancel</Button>
+                            <Button type="submit" variant="contained" className="bg-warning ml-2 btn btn-success" onClick={() => { this.props.history.push('/blogs') }}>Cancel</Button>
                         </div>
                     </div>
                 </div>

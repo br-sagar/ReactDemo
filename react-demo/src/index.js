@@ -1,4 +1,4 @@
-import React, { useState, Component } from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.css";
@@ -48,6 +48,9 @@ class Index extends Component {
                                     </li>
                                     <li className="nav-item">
                                         <NavLink activeStyle={{ color: "tomato" }} to="/fluentui" className="nav-link">FluentUI</NavLink>
+                                    </li>
+                                    <li className="nav-item">
+                                        <NavLink activeStyle={{ color: "tomato" }} to="/showdata" className="nav-link">SharePointRestApi</NavLink>
                                     </li>
                                 </ul>
                             </div>

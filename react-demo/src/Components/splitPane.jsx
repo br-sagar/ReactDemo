@@ -8,13 +8,7 @@ function LeftPane(props) {
   );
 }
 
-function PostComment() {
-  return (
-    <div>
-      <textarea />
-    </div>
-  );
-}
+
 function SocialActivity(props) {
   return (
     <ul className="socialLinks">
@@ -94,7 +88,7 @@ class SplitPane extends Component {
       <div className="row justify-content-center m-3 clearfix">
         <LeftPane>
           <div>
-            <img src={this.props.image} className="thumbnail" />
+            <img src={this.props.image} className="thumbnail" alt="movie-text" />
           </div>
         </LeftPane>
         <RightPane>

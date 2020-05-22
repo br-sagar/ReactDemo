@@ -20,7 +20,7 @@ class FormData extends Component {
             address: '',
             dob: '',
             hobbies: new Map(),
-            user: new Array()
+            user: []
         }
     }
     handleChangeName = (event) => {
@@ -76,7 +76,7 @@ class FormData extends Component {
         const { isSubmitted, uname, sname, gen, city, dob, address } = this.state;
         var hobby = [];
         this.state.hobbies.forEach((value, key, map) => {
-            if (value == true)
+            if (value === true)
                 hobby.push(key)
         });
         if (isSubmitted) {

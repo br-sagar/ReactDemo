@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField'
 import Switch from '@material-ui/core/Switch';
 import Avatar from '@material-ui/core/Avatar';
 import Chip from '@material-ui/core/Chip';
-import FaceIcon from '@material-ui/icons/Face';
 import DoneIcon from '@material-ui/icons/Done';
 import { FormControlLabel, ButtonGroup } from '@material-ui/core';
 

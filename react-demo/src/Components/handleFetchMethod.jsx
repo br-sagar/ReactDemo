@@ -7,7 +7,7 @@ class HandleHttpRequest extends Component {
     constructor() {
         super()
         this.state = {
-            posts: new Array(),
+            posts: [],
             pageIndex: 1,
             size: 10,
             pageStart: '',

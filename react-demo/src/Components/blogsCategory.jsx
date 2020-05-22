@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Link, Route, useRouteMatch, Switch, useParams } from 'react-router-dom'
+import React from 'react';
+import { Link, useRouteMatch, useParams } from 'react-router-dom'
 function Category() {
     let { path, url } = useRouteMatch();
     console.log(path);

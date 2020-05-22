@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
-import SocialActivity from './splitPane'
-import { Redirect, useRouteMatch, Link, useHistory, NavLink } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 class Blogs extends Component {
-    constructor() {
-        super()
-    }
-
     handleEditPost = (e) => {
-        const to = '/blogs' + e.target.value
-        const from = '/blogs'
         let history = useHistory();
         console.log(history)
     }

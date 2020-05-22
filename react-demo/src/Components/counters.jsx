@@ -14,7 +14,7 @@ class Counters extends Component {
         ]
     }
     deleteCounter = (itemID) => {
-        const updateCounter = this.state.counters.filter(item => item.id != itemID);
+        const updateCounter = this.state.counters.filter(item => item.id !== itemID);
         this.setState({ counters: updateCounter })
     }
     render() {
